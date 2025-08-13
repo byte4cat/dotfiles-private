@@ -7,3 +7,6 @@ cam() {
     nohup ffplay -volume ${1:-100} "$cam_addr" >/dev/null 2>&1 &
 }
 
+alias nsbg="$HOME/.config/private/scripts/hyprpaper_set_n_bg.sh"
+
+# echo "Local settings loaded."

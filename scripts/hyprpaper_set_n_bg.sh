@@ -37,7 +37,7 @@ if [[ -z $selected_dir ]]; then
     exit 0
 fi
 
-if [ -n "$TMUX" ]; then
+if [ -n "${TMUX-}" ]; then
     # 在 tmux 中使用 viu
     if [[ "$selected_dir" == *v* ]]; then
         # 目錄名稱含 v，用直向預覽
