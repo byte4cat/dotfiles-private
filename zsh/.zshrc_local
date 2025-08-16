@@ -8,5 +8,6 @@ cam() {
 }
 
 alias nsbg="$HOME/.config/private/scripts/hyprpaper_set_n_bg.sh"
+alias sbg="$HOME/.config/scripts/hyprpaper_set_bg.sh"
 
 # echo "Local settings loaded."
