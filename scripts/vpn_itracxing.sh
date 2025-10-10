@@ -1,1 +1,1 @@
-openfortivpn -c /home/neil/.config/private/vpn/itracxing_vpn.conf
+openfortivpn -c /home/neil/.local/private/vpn/itracxing_vpn.conf
