@@ -1,0 +1,7 @@
+#!/bin/bash
+
+waypaper --state-file ~/.local/private/waypaper/default.json \
+--folder ~/.local/private/nsfw/wallpapers/h \
+~/.local/private/nsfw/wallpapers/v \
+~/.local/private/nsfw/wallpapers/r-h \
+~/.local/private/nsfw/wallpapers/r-v
