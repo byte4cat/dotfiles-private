@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# ------------------------------
+# 配置 private 映射清單
+# 格式: "source_path->target_path"
+# ------------------------------
+MAPPINGS=(
+    "$HOME/.local/private/systemd/user/waypaper-nsfw-random-v.service->$HOME/.config/systemd/user/waypaper-nsfw-random-v.service"
+    "$HOME/.local/private/systemd/user/waypaper-nsfw-random-v.timer->$HOME/.config/systemd/user/waypaper-nsfw-random-v.timer"
+    "$HOME/.local/private/systemd/user/waypaper-nsfw-random-r.service->$HOME/.config/systemd/user/waypaper-nsfw-random-r.service"
+    "$HOME/.local/private/systemd/user/waypaper-nsfw-random-r.timer->$HOME/.config/systemd/user/waypaper-nsfw-random-r.timer"
+)
+
+OVERWRITE=true # 是否覆蓋已存在的目標
+
+# ------------------------------
+# use BASH_SOURCE to get the script actual path
+# ------------------------------
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
+
+# ------------------------------
+# 引入 common utils
+# ------------------------------
+source "$DOTFILES_DIR/lib/common"
+
+# ------------------------------
+# Symlink function with logger
+# ------------------------------
+link_private() {
+    local src="$1"
+    local dst="$2"
+
+    # 確保來源存在
+    if [ ! -e "$src" ]; then
+        error "Source does not exist: $src"
+        return 1
+    fi
+
+    # 如果目標已經存在
+    if [ -e "$dst" ] || [ -L "$dst" ]; then
+        if [ "$OVERWRITE" = "true" ]; then
+            warn "Overwriting existing target: $dst"
+            rm -rf "$dst"
+        else
+            info "Target already exists, skipping: $dst"
+            return 0
+        fi
+    fi
+
+    # 建立目標父目錄
+    mkdir -p "$(dirname "$dst")"
+
+    # 建立 symlink
+    ln -s "$src" "$dst"
+    success "Linked: $src -> $dst"
+}
+
+# ------------------------------
+# 執行 mappings
+# ------------------------------
+info "Starting private files symlink..."
+for mapping in "${MAPPINGS[@]}"; do
+    src="${mapping%->*}"
+    dst="${mapping#*->}"
+
+    # 確保兩者都不是空字串，以防萬一
+    if [[ -z "$src" || -z "$dst" ]]; then
+        error "Mapping format error: $mapping"
+        continue
+    fi
+
+    # info "Link: $src"
+    # info "To: $dst"
+    link_private "$src" "$dst"
+done
+success "All private files linked successfully."

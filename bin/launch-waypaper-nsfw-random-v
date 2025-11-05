@@ -1,0 +1,13 @@
+#!/bin/bash
+
+STATE_FILE="$HOME/.local/private/waypaper/default.json"
+FOLDERS=(
+    "$HOME/.local/private/nsfw/wallpapers/h"
+)
+
+FOLDER_ARGS=()
+for f in "${FOLDERS[@]}"; do
+    FOLDER_ARGS+=(--folder "$f")
+done
+
+waypaper --state-file "$STATE_FILE" --random "${FOLDER_ARGS[@]}"
