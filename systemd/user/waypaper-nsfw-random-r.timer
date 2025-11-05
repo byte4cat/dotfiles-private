@@ -1,9 +1,9 @@
 [Unit]
-Description=Timer to change Waypaper NSFW real wallpaper every 1 minutes
+Description=Timer to change Waypaper NSFW real wallpaper every 3 minutes
 
 [Timer]
 OnBootSec=1min
-OnUnitActiveSec=1min
+OnUnitActiveSec=3min
 Persistent=false
 
 [Install]
