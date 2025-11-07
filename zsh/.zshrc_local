@@ -1,14 +1,14 @@
 export ZPLUG_HOME=$HOME/.zplug
 export DOTFILES_DIR="$HOME/Development/personal/dotfiles"
 
-cam() {
-    cam_addr="rtsp://neil1226:neil0315@192.168.100.101:554/stream1"
-    # nohup mpv --volume=${1:-100} "$cam_addr" >/dev/null 2>&1 &
-    nohup ffplay -volume ${1:-100} "$cam_addr" >/dev/null 2>&1 &
-}
-
-alias nsbg="hyprpaper_set_n_bg"
-alias ansbg="hyprpaper_set_all_n_bg"
-alias sbg="hyprpaper_set_bg"
+# cam() {
+#     cam_addr="rtsp://neil1226:neil0315@192.168.100.101:554/stream1"
+#     # nohup mpv --volume=${1:-100} "$cam_addr" >/dev/null 2>&1 &
+#     nohup ffplay -volume ${1:-100} "$cam_addr" >/dev/null 2>&1 &
+# }
+#
+# alias nsbg="hyprpaper_set_n_bg"
+# alias ansbg="hyprpaper_set_all_n_bg"
+# alias sbg="hyprpaper_set_bg"
 
 # echo "Local settings loaded."

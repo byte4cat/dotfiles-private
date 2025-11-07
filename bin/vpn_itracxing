@@ -1,3 +1,0 @@
-#!/bin/bash
-
-sudo openfortivpn -c /home/neil/.local/private/vpn/itracxing_vpn.conf
