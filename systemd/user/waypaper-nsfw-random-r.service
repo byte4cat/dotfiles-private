@@ -1,6 +1,6 @@
 [Unit]
-Description=Change Waypaper NSFW virtual wallpaper randomly
+Description=Change Waypaper NSFW real wallpaper randomly
 
 [Service]
 Type=oneshot
-ExecStart=/home/neil/.local/private/bin/launch-waypaper-nsfw-random-r
+ExecStart=/home/neil/.local/private/bin/byte4work-waypaper-nsfw-random-r

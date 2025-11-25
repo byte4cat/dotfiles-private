@@ -3,4 +3,4 @@
 systemctl --user stop waypaper-nsfw-random-r.timer
 systemctl --user stop waypaper-nsfw-random-v.timer
 
-swww img ~/.local/share/wallpapers/394665.jpg
+swww img ~/.local/share/wallpapers/3745.jpg

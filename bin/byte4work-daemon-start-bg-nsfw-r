@@ -1,4 +1,5 @@
 #!/bin/bash
 
 systemctl --user stop waypaper-nsfw-random-v.timer
+systemctl --user stop waypaper-nsfw-random-r.timer
 systemctl --user start waypaper-nsfw-random-r.timer
